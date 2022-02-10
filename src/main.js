@@ -1,4 +1,4 @@
 import { defineCustomElement } from 'vue'
+import App from "./App.ce.vue"
 
-import ToolSample from "./components/ToolSample.ce.vue"
-customElements.define('pbotool-sample', defineCustomElement(ToolSample))
+customElements.define('pbotool-sample', defineCustomElement(App))
