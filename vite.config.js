@@ -9,6 +9,7 @@ export default defineConfig({
     customElement: true,
   },})],
   build: {
+    manifest: true,
     rollupOptions: {
       input: ['./src/main.js'],
     },
