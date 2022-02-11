@@ -1,12 +1,23 @@
-<script setup>
-import ToolSplash from './components/ToolSplash.vue'
-</script>
-
 <template>
   <img alt="Vue logo" src="./assets/logo.png" />
   <ToolSplash />
 </template>
 
-<style>
+<script>
+import ToolSplash from './components/ToolSplash.vue'
+const language = document.documentElement.lang;
 
+export default {
+  data() {
+    return {
+      language: language,
+    };
+  },
+  components: {
+    ToolSplash
+  }
+};
+</script>
+<style>
+@import "./index.css";
 </style>
