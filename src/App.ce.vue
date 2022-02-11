@@ -5,6 +5,7 @@
 
 <script>
 import ToolSplash from './components/ToolSplash.vue'
+
 const language = document.documentElement.lang;
 
 export default {
@@ -14,7 +15,8 @@ export default {
     };
   },
   components: {
-    ToolSplash
+    ToolSplash,
+    
   }
 };
 </script>
