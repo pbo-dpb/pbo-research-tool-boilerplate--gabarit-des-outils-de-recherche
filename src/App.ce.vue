@@ -14,9 +14,11 @@ export default {
       language: language,
     };
   },
+  props: {
+    publicPath: String
+  },
   components: {
     ToolSplash,
-    
   }
 };
 </script>
