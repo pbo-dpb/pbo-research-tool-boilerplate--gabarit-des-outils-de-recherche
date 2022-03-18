@@ -1,14 +1,40 @@
 <template>
-  <button type="button" @click="count++" class="border-2 border-cyan-800 bg-cyan-200 rounded px-2 py-1 shadow text-cyan-900">Count is: {{ count }}   <loading-indicator class="w-4 h-4"></loading-indicator>
-</button>
+  
+  <button v-if="!message" :disabled="loading" type="button" @click="loadMessage" class="border-2  bg-sky-800 rounded px-2 py-1  text-white hover:shadow-lg">Load message</button>
+  <loading-indicator class="w-4 h-4" v-if="loading"></loading-indicator>
+  <figure v-if="message" class="text-monospace">{{ message }}</figure>
 </template>
-<script setup>
+<script>
+import payloadUrl from "../assets/payload.json?url";
 import LoadingIndicator from "./LoadingIndicator.vue"
-import { ref } from 'vue'
 
-defineProps({
-  msg: String
-})
+export default {
+  components: {
+    LoadingIndicator
+  },
+  data() {
+    return {
+      message: null,
+      loading: false
+    }
+  },
+  methods: {
+    loadMessage () {
+        this.loading = true;
+        let fetchUrl;
+    if (this.publicPath) {
+      fetchUrl = new URL(payloadUrl, this.$root.publicPath);
+    } else {
+      fetchUrl = payloadUrl;
+    }
 
-const count = ref(0)
+      fetch(fetchUrl)
+      .then((r) => r.json())
+      .then((p) => {
+        this.message = p.message[this.$root.language];
+        this.loading = false;
+      });
+}
+  }
+};
 </script>
