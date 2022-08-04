@@ -6,6 +6,7 @@
 </template>
 <script>
 import payloadUrl from "../assets/payload.json?url";
+import WrapperEventDispatcher from "../WrapperEventDispatcher";
 import LoadingIndicator from "./LoadingIndicator.vue"
 
 export default {
@@ -33,6 +34,8 @@ export default {
       .then((p) => {
         this.message = p.message[this.$root.language];
         this.loading = false;
+
+        (new WrapperEventDispatcher(null, [{name: this.message}])).dispatch();
       });
 }
   }

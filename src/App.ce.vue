@@ -6,8 +6,11 @@
 </template>
 
 <script>
+import { c } from "../dist/assets/vendor.7c343b91";
 import logoUrl from "./assets/logo.svg?url";
 import ToolSplash from './components/ToolSplash.vue'
+import WrapperEventDispatcher from "./WrapperEventDispatcher.js"
+
 const language = document.documentElement.lang;
 
 export default {
@@ -26,6 +29,12 @@ export default {
   },
   components: {
     ToolSplash,
+  },
+  mounted() {
+
+    const pageTitle = this.language === 'fr' ? 'Gabarit' : 'Boilerplate';
+    (new WrapperEventDispatcher(pageTitle, null)).dispatch();
+
   }
 };
 </script>
