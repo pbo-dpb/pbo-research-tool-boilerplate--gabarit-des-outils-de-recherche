@@ -22,14 +22,8 @@ export default {
   methods: {
     loadMessage () {
         this.loading = true;
-        let fetchUrl;
-    if (this.publicPath) {
-      fetchUrl = new URL(payloadUrl, this.$root.publicPath);
-    } else {
-      fetchUrl = payloadUrl;
-    }
 
-      fetch(fetchUrl)
+      fetch(payloadUrl)
       .then((r) => r.json())
       .then((p) => {
         this.message = p.message[this.$root.language];

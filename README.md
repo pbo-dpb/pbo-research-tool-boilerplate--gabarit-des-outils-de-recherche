@@ -33,12 +33,12 @@ npm run build
 
 ### English
 
-A single component can be embedded in an ABCMS web page. An example of how the component is loaded in available in `index.html`. A `public-path` attribute will provide the base path of the assets that can be loaded by the web component.
+A single component can be embedded in an ABCMS web page. An example of how the component is loaded in available in `index.html`.
 
 The web component can raise a `navigation-context-update` event to update the wrapper's UI. See `WrapperEventDispatcher.js` for more information on how to format this `CustomEvent`.
 
 ### Français
 
-Un seul composant peut être intégré dans une page web ABCMS. Un exemple de la façon dont le composant est chargé est disponible dans `index.html`. Un attribut `public-path` fournira le chemin de base des actifs qui peuvent être chargés par le composant web.
+Un seul composant peut être intégré dans une page web ABCMS. Un exemple de la façon dont le composant est chargé est disponible dans `index.html`.
 
 Le composant Web peut déclencher un événement `navigation-context-update` pour mettre à jour l'interface utilisateur de la page ABCMS englobante. Voir `WrapperEventDispatcher.js` pour plus d'informations sur la façon de formater ce `CustomEvent`.

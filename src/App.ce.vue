@@ -18,12 +18,9 @@ export default {
       language: language,
     };
   },
-  props: {
-    publicPath: String
-  },
   computed: {
     logoUrl() {
-      return this.publicPath ? this.publicPath + logoUrl : logoUrl
+      return logoUrl
     }
   },
   components: {
