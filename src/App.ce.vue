@@ -6,7 +6,6 @@
 </template>
 
 <script>
-import { c } from "../dist/assets/vendor.7c343b91";
 import logoUrl from "./assets/logo.svg?url";
 import ToolSplash from './components/ToolSplash.vue'
 import WrapperEventDispatcher from "./WrapperEventDispatcher.js"
