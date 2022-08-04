@@ -1,11 +1,44 @@
-# Vue 3 + Vite + Web Components
+# Vue 3 + Vite + Web Components (composants web)
 
-This template should help get you started developing with Vue 3 in Vite with the intent of building [Web Components](https://developer.mozilla.org/en-US/docs/Web/Web_Components) to embed to the main PBO website. 
+## Description
 
-This code provides a starting point for the developpment of research tools.
+### English
 
-The template uses Vue 3 `<script setup>` SFCs, check out the [script setup docs](https://v3.vuejs.org/api/sfc-script-setup.html#sfc-script-setup) to learn more.
+This code provides a starting point for the development of research tools/interactive components that can be embedded on the PBO's main website.
+This template should help get you started developing with Vue 3 in Vite with the intent of building a standalone [Web Component](https://developer.mozilla.org/en-US/docs/Web/Web_Components).
 
-## Recommended IDE Setup
+### Français
 
-- [VSCode](https://code.visualstudio.com/) + [Volar](https://marketplace.visualstudio.com/items?itemName=johnsoncodehk.volar)
+Ce code fournit un point de départ pour le développement d'outils de recherche/composants interactifs qui peuvent être intégrés au site Web principal du DPB.
+Ce modèle devrait vous aider à commencer à développer avec Vue 3 dans Vite avec l'intention de construire un [composant Web  (Web Component)] autonome (https://developer.mozilla.org/en-US/docs/Web/Web_Components).
+
+## Project setup // Mise en route
+```
+npm install
+```
+
+## Compilation // Compilation
+
+### Compiles and hot-reloads for development // Compilations et recharges à chaud pour le développement
+```
+npm run dev
+```
+
+### Compiles and minifies for production // Compilation et miniaturisation pour la production
+```
+npm run build
+```
+
+## Interfaces // Interfaces
+
+### English
+
+A single component can be embedded in an ABCMS web page. An example of how the component is loaded in available in `index.html`. A `public-path` attribute will provide the base path of the assets that can be loaded by the web component.
+
+The web component can raise a `navigation-context-update` event to update the wrapper's UI. See `WrapperEventDispatcher.js` for more information on how to format this `CustomEvent`.
+
+### Français
+
+Un seul composant peut être intégré dans une page web ABCMS. Un exemple de la façon dont le composant est chargé est disponible dans `index.html`. Un attribut `public-path` fournira le chemin de base des actifs qui peuvent être chargés par le composant web.
+
+Le composant Web peut déclencher un événement `navigation-context-update` pour mettre à jour l'interface utilisateur de la page ABCMS englobante. Voir `WrapperEventDispatcher.js` pour plus d'informations sur la façon de formater ce `CustomEvent`.
