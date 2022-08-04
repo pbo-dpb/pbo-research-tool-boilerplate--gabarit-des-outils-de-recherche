@@ -13,18 +13,22 @@ export default class WrapperEventDispatcher {
         this.breadcrumbStack = breadcrumbStack;
     }
 
-    dispatch() {
+    static dispatch(pageTitle, breadcrumbStack, userInfo) {
         const event = new CustomEvent("navigation-context-update", {
             bubbles: true,
             cancelable: false,
             composed: true,
             detail: {
-                pageTitle: this.pageTitle,
-                breadcrumbStack: this.breadcrumbStack,
-                userInfo: this.userInfo
+                pageTitle,
+                breadcrumbStack,
+                userInfo
             }
         });
         document.dispatchEvent(event);
+    }
+
+    dispatch() {
+        WrapperEventDispatcher.dispatch(this.pageTitle, this.breadcrumbStack, this.userInfo)
     }
 
 }

@@ -34,8 +34,7 @@ export default {
       .then((p) => {
         this.message = p.message[this.$root.language];
         this.loading = false;
-
-        (new WrapperEventDispatcher(null, [{name: this.message}])).dispatch();
+        WrapperEventDispatcher.dispatch(null, [{name: this.message}]);
       });
 }
   }
