@@ -1,6 +1,7 @@
 <template>
+  <DebugBar v-if="debug"></DebugBar>
   <div class="flex flex-col justify-center items-center gap-8">
-    <img alt="Vue logo" :src="logoUrl" class="w-64" />
+    <img alt="PBO-DBP" :src="logoUrl" class="w-64" />
     <ToolSplash />
   </div>
 </template>
@@ -9,28 +10,38 @@
 import logoUrl from "./assets/logo.svg?url";
 import ToolSplash from './components/ToolSplash.vue'
 import WrapperEventDispatcher from "./WrapperEventDispatcher.js"
-
-const language = document.documentElement.lang;
+import { mapState, mapWritableState } from 'pinia'
+import Localizations from './stores/localizations.js'
+import DebugBar from "./components/DebugBar.vue";
 
 export default {
-  data() {
-    return {
-      language: language,
-    };
-  },
   computed: {
     logoUrl() {
       return logoUrl
-    }
+    },
+    ...mapWritableState(Localizations, ['language']),
+    ...mapState(Localizations, ['strings']),
+    debug() {
+      return this.$root.debug;
+    },
   },
+
   components: {
     ToolSplash,
+    DebugBar
   },
   mounted() {
-
-    const pageTitle = this.language === 'fr' ? 'Gabarit' : 'Boilerplate';
-    (new WrapperEventDispatcher(pageTitle, null)).dispatch();
-
+    this.setPageTitle();
+  },
+  methods: {
+    setPageTitle() {
+      (new WrapperEventDispatcher(this.strings.title, null)).dispatch();
+    }
+  },
+  watch: {
+    language() {
+      this.setPageTitle();
+    }
   }
 };
 </script>
