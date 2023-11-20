@@ -1,7 +1,7 @@
 <template>
-<div class="flex flex-col justify-center items-center gap-8">
-  <img alt="Vue logo" :src="logoUrl" class="w-64" />
-  <ToolSplash />
+  <div class="flex flex-col justify-center items-center gap-8">
+    <img alt="Vue logo" :src="logoUrl" class="w-64" />
+    <ToolSplash />
   </div>
 </template>
 
