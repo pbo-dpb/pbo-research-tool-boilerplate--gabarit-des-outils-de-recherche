@@ -7,12 +7,15 @@
 </template>
 
 <script>
+import { defineAsyncComponent } from 'vue'
 import logoUrl from "./assets/logo.svg?url";
 import ToolSplash from './components/ToolSplash.vue'
 import WrapperEventDispatcher from "./WrapperEventDispatcher.js"
 import { mapState, mapWritableState } from 'pinia'
 import Localizations from './stores/localizations.js'
-import DebugBar from "./components/DebugBar.vue";
+const DebugBar = defineAsyncComponent(() =>
+  import("./components/DebugBar.vue")
+);
 
 export default {
   computed: {
